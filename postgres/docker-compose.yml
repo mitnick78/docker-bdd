@@ -1,0 +1,18 @@
+version: "3"
+services:
+  postgres:
+    image: "postgres:10"
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "db"
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - "54320:5432"
+    expose:
+      # Opens port 3306 on the container
+      - "54320"
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+volumes:
+  my_dbdata:
